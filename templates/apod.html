@@ -9,11 +9,12 @@
         <title>Document</title>
     </head>
     <body class="blue-grey">
-        <h1 class="center-align">EPIC Daily "Blue Marble"</h1>
-
+        <h1 class="center-align">Astronomy Picture of the Day</h1>
+        <p class="center-align">{{APOD.date}}</p>
         <div class="center-align">
-            <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.0.identifier[:4]}}/{{EPIC.0.identifier[4:6]}}/{{EPIC.0.identifier[6:8]}}/png/{{EPIC.0.image}}.png" alt="" class="center-align responsive-img z-depth-2" >
+            <img src="{{APOD.url}}" alt="" class="center-align responsive-img z-depth-2" >
         </div>
-        <p>{{EPIC.0.caption}}</p>
+        <h2 class="center-align">{{APOD.title}}</h2>
+        <p class="flow-text">{{APOD.explanation}}</p>
     </body>
 </html>

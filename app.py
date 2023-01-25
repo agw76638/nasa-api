@@ -9,6 +9,11 @@ def home():
   APOD = fetchAPOD()
   return render_template("main.html", APOD=APOD)
 
+@app.route("/apod")
+def apod():
+  APOD = fetchAPOD()
+  return render_template("apod.html", APOD=APOD)
+
 @app.route("/epic")
 def epicPage():
   EPIC = fetchEPIC()

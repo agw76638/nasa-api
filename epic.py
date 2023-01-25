@@ -8,6 +8,5 @@ def fetchEPIC():
   response = requests.get(URL_EPIC,params=params).json()
 
   return response
-  print(response)
 
 fetchEPIC()
