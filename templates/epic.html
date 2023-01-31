@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/materialize.min.css') }}"  media="screen,projection"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body class="blue-grey">
+{% extends 'layout.html' %}
+{% block content %}
         <h1 class="center-align">EPIC Daily "Blue Marble"</h1>
 
         <div class="center-align">
             <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.0.identifier[:4]}}/{{EPIC.0.identifier[4:6]}}/{{EPIC.0.identifier[6:8]}}/png/{{EPIC.0.image}}.png" alt="" class="center-align responsive-img z-depth-2" >
         </div>
-        <p>{{EPIC.0.caption}}</p>
-    </body>
-</html>
+        <p class="center-align">{{EPIC.0.caption}}</p>
+        <p class="center-align">{{EPIC.0.date}}</p>
+{% endblock content %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/materialize.min.css') }}"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Flask Blog - {{ title }}</title>
+    {% else %}
+        <title>Flask Blog</title>
+    {% endif %}
+</head>
+<body class="blue-grey">
+    <header>
+        <nav class="nav-wrapper blue-grey darken-3">
+            <div class="container">
+                <a href="/" class="brand-logo">Home</a>
+                <ul class="right">
+                    <li><a href="{{url_for('apod')}}">apod</a></li>
+                    <li><a href="{{url_for('epicPage')}}">epic</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
