@@ -1,10 +1,23 @@
 {% extends 'layout.html' %}
 {% block content %}
         <h1 class="center-align">EPIC Daily "Blue Marble"</h1>
-
-        <div class="center-align">
-            <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.0.identifier[:4]}}/{{EPIC.0.identifier[4:6]}}/{{EPIC.0.identifier[6:8]}}/png/{{EPIC.0.image}}.png" alt="" class="center-align responsive-img z-depth-2" >
-        </div>
+        <div class="room-gallery">
+            <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.0.identifier[:4]}}/{{EPIC.0.identifier[4:6]}}/{{EPIC.0.identifier[6:8]}}/png/{{EPIC.0.image}}.png" class="gallery-highlight center-align responsive-img z-depth-2" alt="" />
+            <div class="room-preview" style="display: flex;">
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.0.identifier[:4]}}/{{EPIC.0.identifier[4:6]}}/{{EPIC.0.identifier[6:8]}}/png/{{EPIC.0.image}}.png" class="room-active" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.1.identifier[:4]}}/{{EPIC.1.identifier[4:6]}}/{{EPIC.1.identifier[6:8]}}/png/{{EPIC.1.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.2.identifier[:4]}}/{{EPIC.2.identifier[4:6]}}/{{EPIC.2.identifier[6:8]}}/png/{{EPIC.2.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.3.identifier[:4]}}/{{EPIC.3.identifier[4:6]}}/{{EPIC.3.identifier[6:8]}}/png/{{EPIC.3.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.4.identifier[:4]}}/{{EPIC.4.identifier[4:6]}}/{{EPIC.4.identifier[6:8]}}/png/{{EPIC.4.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.5.identifier[:4]}}/{{EPIC.5.identifier[4:6]}}/{{EPIC.5.identifier[6:8]}}/png/{{EPIC.5.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.6.identifier[:4]}}/{{EPIC.6.identifier[4:6]}}/{{EPIC.6.identifier[6:8]}}/png/{{EPIC.6.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.7.identifier[:4]}}/{{EPIC.7.identifier[4:6]}}/{{EPIC.7.identifier[6:8]}}/png/{{EPIC.7.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.8.identifier[:4]}}/{{EPIC.8.identifier[4:6]}}/{{EPIC.8.identifier[6:8]}}/png/{{EPIC.8.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.9.identifier[:4]}}/{{EPIC.9.identifier[4:6]}}/{{EPIC.9.identifier[6:8]}}/png/{{EPIC.9.image}}.png" alt="" />
+              <img src="https://epic.gsfc.nasa.gov/archive/natural/{{EPIC.10.identifier[:4]}}/{{EPIC.10.identifier[4:6]}}/{{EPIC.10.identifier[6:8]}}/png/{{EPIC.10.image}}.png" alt="" />
+            </div>
+          </div>
         <p class="center-align">{{EPIC.0.caption}}</p>
         <p class="center-align">{{EPIC.0.date}}</p>
+        <script type="text/javascript" src="/static/js/epic.js"/></script>
 {% endblock content %}

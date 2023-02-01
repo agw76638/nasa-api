@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/materialize.min.css') }}"  media="screen,projection"/>
+    <style>
+        .room-preview {
+            display: flex;
+            border: 2px solid #eceff1;
+            }
+
+            .room-preview img {
+            height: 100px;
+            flex-grow: 1;
+            opacity: 0.6;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            }
+
+            img.room-active {
+            opacity: 1;
+            }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if title %}
         <title>Flask Blog - {{ title }}</title>
@@ -17,10 +35,6 @@
         <nav class="nav-wrapper blue-grey darken-3">
             <div class="container">
                 <a href="/" class="brand-logo">Home</a>
-                <ul class="right">
-                    <li><a href="{{url_for('apod')}}">apod</a></li>
-                    <li><a href="{{url_for('epicPage')}}">epic</a></li>
-                </ul>
             </div>
         </nav>
     </header>
