@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, send_file
+from flask_sqlalchemy import SQLAlchemy
 from apod import fetchAPOD
 from epic import fetchEPIC
-from mars import fetchMARS
+from mars import getMars
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def epicPage():
 
 @app.route("/mars")
 def mars():
-  MARS = fetchMARS()
+  MARS = getMars()
   return render_template("mars.html", MARS=MARS)
 
 app.run()

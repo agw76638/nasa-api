@@ -1,22 +1,35 @@
 import requests
+import random
 from flask import request
-from flask_sqlalchemy import SQLAlchemy
 
-def fetchMARS():
-  URL_MARS = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos"
-  params = {
-      'api_key':'0U7D9wfke1uQ0leQL4gOYVIN3PDJqyTeMxAI5DxS'
-  }
-  response = requests.get(URL_MARS,params=params).json()
-#   page = request.args.get('page', 1, type=int)
-  images = []
-  for image in images:
-    image_data = {
-        'url': response['latest_photos'][0]['img_src']
-    }
-#   posts = response.paginate(page=page, per_page=2)
-  print(response['latest_photos'][0]['img_src'])
+def fetchMars(url):
+  response = requests.get(url).json()
+  latest_photos = response['latest_photos']
+  length = len(latest_photos) - 1
+  number = random.randint(0, length)
+  src = latest_photos[number]['img_src']
+  date = latest_photos[number]['earth_date']
+  sol = latest_photos[number]['sol']
 
-  return response
+  return {'src': src, 'date': date,'sol': sol}
 
-fetchMARS()
+# def marsData(url):
+#   URL = url
+#   response = requests.get(url).json()
+#   latest_photos = response['latest_photos']
+#   length = len(latest_photos)-1
+#   datas = []
+#   for i in range(4):
+#     data = fetchMars(URL, i)
+#     print(data, i)
+#     datas.append(data)
+#     i = i+1
+#   print(datas)
+#   return datas
+
+def getMars():
+  URL_MARS = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=0U7D9wfke1uQ0leQL4gOYVIN3PDJqyTeMxAI5DxS"
+  datas = fetchMars(URL_MARS)
+  return datas
+
+getMars()
