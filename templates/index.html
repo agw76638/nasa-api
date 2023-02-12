@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card blue-grey darken-1 hoverable">
+    <div class="card-content white-text">
+      <span class="card-title">Astronomy Picture of the Day</span>
+      <p>Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
+    </div>
+    <div class="card-action">
+      <a href="{{url_for('apod')}}">This is a link</a>
+    </div>
+</div>
+<div class="card blue-grey darken-1 hoverable">
+    <div class="card-content white-text">
+      <span class="card-title">Earth Polychromatic Imaging Camera</span>
+      <p>EPIC (Earth Polychromatic Imaging Camera) is a 10-channel spectroradiometer (317 – 780 nm) onboard NOAA’s DSCOVR (Deep Space Climate Observatory) spacecraft. EPIC provides 10 narrow band spectral images of the entire sunlit face of Earth using a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled to a 30-cm aperture Cassegrain telescope.</p>
+    </div>
+    <div class="card-action">
+      <a href="{{url_for('epicPage')}}">This is a link</a>
+    </div>
+</div>
+{% endblock content %}
