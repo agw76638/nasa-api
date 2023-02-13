@@ -8,22 +8,21 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-  APOD = fetchAPOD()
-  return render_template("main.html", APOD=APOD)
+  return render_template("index.html")
 
 @app.route("/apod")
 def apod():
   APOD = fetchAPOD()
-  return render_template("apod.html", APOD=APOD)
+  return render_template("apod.html", APOD=APOD, title='APOD')
 
 @app.route("/epic")
 def epicPage():
   EPIC = fetchEPIC()
-  return render_template("epic.html", EPIC=EPIC)
+  return render_template("epic.html", EPIC=EPIC, title='EPIC')
 
 @app.route("/mars")
 def mars():
   MARS = getMars()
-  return render_template("mars.html", MARS=MARS)
+  return render_template("mars.html", MARS=MARS, title='Mars Photo')
 
 app.run()
