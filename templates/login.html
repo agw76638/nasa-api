@@ -1,0 +1,43 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="row">
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <fieldset>
+      <legend>Log In</legend>
+
+      <div class="input-field">
+        {{ form.email.label(class="") }} {% if form.email.errors %} {{
+        form.email(class="invalid")}}
+        <div class="red lighten-4">
+          {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.email(class="") }} {% endif %}
+      </div>
+      <div class="input-field">
+        {{ form.password.label(class="") }} {% if form.password.errors %} {{
+        form.password(class="invalid")}}
+        <div class="red lighten-4">
+          {% for error in form.password.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.password(class="") }} {% endif %}
+      </div>
+      <div>
+        {{ form.remember(class='', type="checkbox")}} {{
+        form.remember.label(class='')}}
+      </div>
+    </fieldset>
+    <div>{{ form.submit(class="btn")}}</div>
+    <small><a href="#">Forgot Password?</a></small>
+  </form>
+</div>
+<div>
+  <small>
+    Need An Account?
+    <a class="" href="{{ url_for('register')}}">Sign Up Now</a>
+  </small>
+</div>
+{% endblock content %}

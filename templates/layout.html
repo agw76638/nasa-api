@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/materialize.min.css') }}"  media="screen,projection"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/materialize.min.css') }}"
+      media="screen,projection"
+    />
     <style>
-        .room-preview {
-            display: flex;
-            border: 2px solid #eceff1;
-            }
+      .room-preview {
+        display: flex;
+        border: 2px solid #eceff1;
+      }
 
-            .room-preview img {
-            height: 100px;
-            flex-grow: 1;
-            opacity: 0.6;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-            }
+      .room-preview img {
+        height: 100px;
+        flex-grow: 1;
+        opacity: 0.6;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
 
-            img.room-active {
-            opacity: 1;
-            }
+      img.room-active {
+        opacity: 1;
+      }
     </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% if title %}
-        <title>Space Image - {{ title }}</title>
+    <title>Space Image - {{ title }}</title>
     {% else %}
-        <title>Space Image</title>
+    <title>Space Image</title>
     {% endif %}
-</head>
-<body class="blue-grey">
+  </head>
+  <body class="blue-grey">
     <header>
-        <nav class="nav-wrapper blue-grey darken-3">
-            <div class="container">
-                <a href="/" class="brand-logo">Home</a>
-            </div>
-        </nav>
+      <nav class="nav-wrapper blue-grey darken-3">
+        <div class="nav-wrapper container">
+          <a href="{{ url_for('home') }}" class="brand-logo">Home</a>
+
+          <div>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="{{ url_for('login') }}">Login</a></li>
+              <li><a href="{{ url_for('register') }}">Register</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <div class="container">
-        {% block content %}{% endblock %}
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="red lighten-4"></div>
+      {{ message }} {% endfor %} {% endif %} {% endwith %} {% block content %}{%
+      endblock %}
     </div>
-</body>
+  </body>
 </html>
